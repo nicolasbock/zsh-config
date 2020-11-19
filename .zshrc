@@ -1,17 +1,30 @@
-# Lines configured by zsh-newuser-install
+# History.
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+
+# Set options.
 setopt autocd extendedglob nomatch notify
+
+# Be quiet.
 unsetopt beep
+
+# Emacs key bindings.
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
+
+# Initialize completion.
 zstyle :compinstall filename '/home/nbock/.zshrc'
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
+# Get powerline (apt install powerline)
+powerline-daemon -q
+. /usr/share/powerline/bindings/zsh/powerline.zsh
+
+[[ -f ~/.zsh_aliases ]] && . ~/.zsh_aliases
+[[ -f ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+
+# Define some useful functions.
 ediff() {
   if (( $# == 2 )); then
     echo "comparing 2 files"
@@ -20,13 +33,6 @@ ediff() {
     echo "incorrect number of arguments"
   fi
 }
-
-# Get powerline (apt install powerline)
-powerline-daemon -q
-. /usr/share/powerline/bindings/zsh/powerline.zsh
-
-[[ -f ~/.zsh_aliases ]] && . ~/.zsh_aliases
-[[ -f ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 
 # Stop words at path separators.
 WORDCHARS="${WORDCHARS:s#/#}"
