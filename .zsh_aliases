@@ -1,0 +1,22 @@
+alias mv='\mv -i'
+alias cp='\cp -i'
+alias rm='\rm -i'
+alias trashcan='gio list trash://'
+alias ls='\ls --color=auto'
+alias ll='ls -lhF'
+alias la='ls -lAhF'
+alias em='emacsclient --create-frame --no-wait --alternate-editor='''
+alias em-nox='emacsclient --create-frame --alternate-editor='''
+
+# Add some fail-safe functions.
+sudo() {
+  if [[ $1 == reboot ]]; then
+    echo "Are you sure?"
+    return
+  fi
+  env sudo $@
+}
+
+# Local Variables:
+# mode: sh
+# End:
