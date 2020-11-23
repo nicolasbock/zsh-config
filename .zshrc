@@ -30,9 +30,9 @@ zstyle ':completion:*' matcher-list '' \
 
 # Get powerline (apt install powerline)
 powerline-daemon -q
-. /usr/share/powerline/bindings/zsh/powerline.zsh
+source /usr/share/powerline/bindings/zsh/powerline.zsh
 
-[[ -f ~/.zsh_aliases ]] && . ~/.zsh_aliases
+[[ -f ~/.zsh_aliases ]] && source ~/.zsh_aliases
 [[ -f ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 
 # Define some useful functions.
@@ -70,7 +70,7 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zplug/init.zsh
 
 # Load zplug plugins.
-zplug load --verbose
+[[ -f ~/.zplug/packages.zsh ]] && source ~/.zplug/packages.zsh
 
 # Local Variables:
 # mode: sh
